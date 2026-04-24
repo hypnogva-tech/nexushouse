@@ -396,14 +396,40 @@
     </a>
   </div>
   <div>
-    <div class="form-group"><input type="text" placeholder="Your full name"></div>
-    <div class="form-group"><input type="email" placeholder="Your email address"></div>
-    <div class="form-group"><input type="text" placeholder="Your current profession"></div>
-    <div class="form-group"><input type="text" placeholder="How long have you been in Switzerland?"></div>
-    <div class="form-group"><input type="text" placeholder="Why does Nexus House feel right for you?"></div>
-    <button class="form-submit">Send my application</button>
+    <div class="form-group"><input id="f-name" type="text" placeholder="Your full name"></div>
+    <div class="form-group"><input id="f-email" type="email" placeholder="Your email address"></div>
+    <div class="form-group"><input id="f-job" type="text" placeholder="Your current profession"></div>
+    <div class="form-group"><input id="f-time" type="text" placeholder="How long have you been in Switzerland?"></div>
+    <div class="form-group"><input id="f-why" type="text" placeholder="Why does Nexus House feel right for you?"></div>
+    <button class="form-submit" onclick="sendToWhatsApp()">Send my application →</button>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;text-align:center;">Clicking will open WhatsApp with your answers pre-filled</p>
   </div>
 </section>
+
+<script>
+function sendToWhatsApp() {
+  var name  = document.getElementById('f-name').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  var job   = document.getElementById('f-job').value.trim();
+  var time  = document.getElementById('f-time').value.trim();
+  var why   = document.getElementById('f-why').value.trim();
+
+  if (!name || !email || !job) {
+    alert('Please fill in at least your name, email and profession.');
+    return;
+  }
+
+  var msg = '🏡 *New Nexus House Application*\n\n'
+    + '👤 *Name:* ' + name + '\n'
+    + '📧 *Email:* ' + email + '\n'
+    + '💼 *Profession:* ' + job + '\n'
+    + '📅 *Time in Switzerland:* ' + (time || '—') + '\n'
+    + '💬 *Why Nexus House:* ' + (why || '—');
+
+  var url = 'https://wa.me/41783206610?text=' + encodeURIComponent(msg);
+  window.open(url, '_blank');
+}
+</script>
 
 <footer>
   <div class="logo">NEXUS <span>HOUSE</span></div>
