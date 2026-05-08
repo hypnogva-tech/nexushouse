@@ -1,44 +1,277 @@
-import { Toaster } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
-import ErrorBoundary from "./components/ErrorBoundary";
-import { ThemeProvider } from "./contexts/ThemeContext";
-import Home from "./pages/Home";
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexusHouse - Panneaux Solaires en Suisse Romande</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="NexusHouse Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#avantages">Avantages</a></li>
+                <li><a href="#subventions">Subventions</a></li>
+                <li><a href="#temoignages">Témoignages</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        <a href="#estimation" class="btn-estimation">Estimation gratuite</a>
+    </header>
 
-function Router() {
-  // make sure to consider if you need authentication for certain routes
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+    <!-- Section Avantages -->
+    <section id="avantages" class="section-avantages">
+        <h2>Pourquoi choisir le solaire ?</h2>
+        <div class="avantages-grid">
+            <div class="avantage">
+                <i class="fas fa-solar-panel"></i>
+                <h3>Subventions cantonales</h3>
+                <p>Les cantons romands financent une partie significative de votre installation. Chaque canton a son programme d'aide.</p>
+                <span class="badge">Jusqu'à 30% du coût</span>
+            </div>
+            <div class="avantage">
+                <i class="fas fa-calculator"></i>
+                <h3>Déductions fiscales 2029</h3>
+                <p>Votre investissement est déductible de l'impôt fédéral direct. Réduisez considérablement le coût net de votre projet.</p>
+                <span class="badge">Valable jusqu'en 2029</span>
+            </div>
+            <div class="avantage">
+                <i class="fas fa-bolt"></i>
+                <h3>Économies immédiates</h3>
+                <p>Réduisez votre facture d'électricité dès le premier jour. Les économies s'accumulent année après année.</p>
+                <span class="badge">Amortissement en 6-7 ans</span>
+            </div>
+            <div class="avantage">
+                <i class="fas fa-home"></i>
+                <h3>Valorisation immobilière</h3>
+                <p>Un bien équipé de panneaux solaires se vend en moyenne plus cher. C'est un atout lors d'une revente.</p>
+                <span class="badge">Plus-value immobilière</span>
+            </div>
+            <div class="avantage">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Indépendance énergétique</h3>
+                <p>Protégez-vous des hausses de prix de l'électricité. Produisez votre propre énergie et revendez le surplus.</p>
+                <span class="badge">Autonomie énergétique</span>
+            </div>
+            <div class="avantage">
+                <i class="fas fa-users"></i>
+                <h3>Installateurs certifiés</h3>
+                <p>Nos partenaires sont certifiés et reconnus. Installation professionnelle et service après-vente de qualité.</p>
+                <span class="badge">Réseau de 40+ installateurs</span>
+            </div>
+        </div>
+    </section>
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+    <!-- Section Processus -->
+    <section id="processus" class="section-processus">
+        <div class="processus-header">
+            <span class="subtitle">Processus simple</span>
+            <h2>De la demande à l'installation</h2>
+        </div>
+        <div class="processus-steps">
+            <div class="step">
+                <div class="step-icon">🌞</div>
+                <div class="step-number">1</div>
+                <h3>Estimation en ligne</h3>
+                <p>Remplissez le formulaire en 2 minutes. Gratuit et sans engagement.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">📞</div>
+                <div class="step-number">2</div>
+                <h3>Appel conseil</h3>
+                <p>Un expert vous rappelle sous 24h (jours ouvrables) pour analyser votre situation.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">📄</div>
+                <div class="step-number">3</div>
+                <h3>Devis personnalisé</h3>
+                <p>Recevez une offre détaillée avec calcul des subventions et ROI.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">⚡</div>
+                <div class="step-number">4</div>
+                <h3>Installation</h3>
+                <p>Nos équipes certifiées installent votre système. Mise en service rapide.</p>
+            </div>
+        </div>
+    </section>
 
-function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
-}
+    <!-- Section Témoignages -->
+    <section id="temoignages" class="section-temoignages">
+        <div class="temoinages-header">
+            <span class="subtitle">Ce que disent nos clients</span>
+            <h2>Ils ont fait le bon choix</h2>
+            <div class="rating">
+                <span>⭐⭐⭐⭐⭐</span>
+                <p>4.9/5 · 312 avis vérifiés</p>
+            </div>
+        </div>
+        <div class="temoignages-grid">
+            <div class="temoignage">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p>"Excellente expérience du début à la fin. L'équipe a géré toutes les démarches administratives. Je suis très satisfait du résultat."</p>
+                <div class="client-info">
+                    <strong>Marc-Antoine R.</strong>
+                    <span>📍 Montreux, VD</span>
+                </div>
+                <span class="project-status">Projet réalisé en 2024</span>
+            </div>
+            <!-- Autres témoignages -->
+        </div>
+    </section>
 
-export default App;
+    <!-- Section FAQ -->
+    <section id="faq" class="section-faq">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                <h3>Quelles subventions puis-je obtenir en Suisse romande ?</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Selon votre canton, vous pouvez obtenir une aide financière pour votre installation. S'y ajoutent les déductions fiscales sur l'impôt fédéral direct, valables jusqu'en 2029.</p>
+            </div>
+        </div>
+        <!-- Autres questions -->
+    </section>
 
+    <!-- Section Statistiques -->
+    <section class="section-stats">
+        <div class="stats-grid">
+            <div class="stat">
+                <h3>3200+</h3>
+                <p>Installations réalisées</p>
+            </div>
+            <div class="stat">
+                <h3>85%</h3>
+                <p>Taux de satisfaction</p>
+            </div>
+            <div class="stat">
+                <h3>6 ans</h3>
+                <p>Retour sur investissement</p>
+            </div>
+            <div class="stat">
+                <h3>2.8M CHF</h3>
+                <p>Subventions obtenues</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA (Call to Action) -->
+    <section class="section-cta">
+        <h2>Prêt à passer au solaire ?</h2>
+        <p><strong>Demandez votre estimation.</strong></p>
+        <p>Découvrez en 2 minutes le potentiel solaire de votre bien et les subventions disponibles dans votre canton.</p>
+        <div class="cta-buttons">
+            <a href="#estimation" class="btn-primary">Obtenir mon estimation gratuite</a>
+            <a href="#formulaire" class="btn-secondary">Voir le formulaire</a>
+        </div>
+    </section>
+
+    <!-- Section Subventions par Canton -->
+    <section id="subventions" class="section-subventions">
+        <h2>Votre canton finance votre transition</h2>
+        <p>Chaque canton romand dispose de son propre programme de soutien. Les fonds sont attribués selon les critères cantonaux.</p>
+        <div class="cantons-list">
+            <div class="canton">
+                <h4>Vaud</h4>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="canton">
+                <h4>Genève</h4>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;"></div>
+                </div>
+            </div>
+            <!-- Autres cantons -->
+        </div>
+        <div class="subvention-highlight">
+            <h3>2.8M CHF</h3>
+            <p>de subventions obtenues en 2025</p>
+        </div>
+    </section>
+
+    <!-- Formulaire d'Estimation -->
+    <section id="estimation" class="section-estimation">
+        <div class="estimation-form">
+            <h2>Estimation gratuite</h2>
+            <p>2 minutes · Sans engagement · 100% gratuit</p>
+            <div class="form-steps">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span>Votre bien</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span>Votre projet</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span>Vos coordonnées</span>
+                </div>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="canton">Canton</label>
+                    <select id="canton">
+                        <option>Choisir votre canton...</option>
+                        <option>Vaud</option>
+                        <option>Genève</option>
+                        <option>Valais</option>
+                        <option>Fribourg</option>
+                        <option>Neuchâtel</option>
+                        <option>Jura</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="type-bien">Type de bien</label>
+                    <select id="type-bien">
+                        <option>Sélectionner...</option>
+                        <option>Maison individuelle</option>
+                        <option>Appartement</option>
+                        <option>Immeuble</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="surface-toit">Surface du toit (m²)</label>
+                    <input type="number" id="surface-toit" placeholder="Ex: 60">
+                </div>
+                <button type="submit" class="btn-primary">Vérifier mon éligibilité</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="NexusHouse Logo">
+            </div>
+            <div class="footer-links">
+                <a href="#">Avantages</a>
+                <a href="#">Subventions</a>
+                <a href="#">Témoignages</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="footer-contact">
+                <p>📞 Réponse sous 24h</p>
+                <p>✉️ contact@nexushouse.ch</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 NexusHouse. Tous droits réservés.</p>
+            <p>Made with Manus</p>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>
 
