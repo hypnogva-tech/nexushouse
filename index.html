@@ -1,41 +1,194 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>SolairesRomandie.ch | Subventions + Économies fiscales panneaux solaires Suisse romande</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Vérifiez vos subventions + déductions fiscales pour panneaux solaires en Suisse romande (Vaud, Genève, Valais). Estimation gratuite en 2 min. Installation rentable avant 2029.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <title>Subventions Solaires Suisse Romande</title>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #080b09;
-      --teal: #3ecf8e;
-      --teal-glow: rgba(62,207,142,0.15);
-      --text: #f0f4f1;
-      --muted: rgba(240,244,241,0.5);
-      --dim: rgba(240,244,241,0.28);
-      --border: rgba(255,255,255,0.08);
-      --shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-
-    html { scroll-behavior: smooth; }
-
     body {
-      font-family: 'DM Sans', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #f7faf7;
+      color: #222;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+    }
+    header, section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    header {
+      background: url('[images.unsplash.com](https://images.unsplash.com/photo-1584270354949-1e0f3ae0ba6d?auto=format&fit=crop&w=1200&q=60)') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 90px 20px;
+      background-blend-mode: multiply;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    header h1 {
+      font-size: 2.3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+    }
+    .btn-primary {
+      background-color: #3fa34d;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #2d7a39;
     }
 
-    .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+    form {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #3fa34d;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #3fa34d;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 1.1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #2d7a39;
+    }
+    .info-section h2 {
+      color: #3fa34d;
+      margin-top: 50px;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
 
-    /* NAV */
-    nav { padding: 32px 0 0; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
-    .logo em { font-style: normal; color: var(--teal); }
-    .nav-badge { font-size: 11px; color: var(--teal); background
+<body>
+
+<header>
+  <h1>Vérifiez vos subventions solaires en Suisse romande</h1>
+  <p>Jusqu’à 30% pris en charge + déductions fiscales jusqu’en 2029.<br>
+     Estimation gratuite en 2 minutes.</p>
+  <a href="#formulaire" class="btn-primary">Vérifier mon éligibilité</a>
+</header>
+
+<section id="formulaire">
+  <form>
+    <h2>Estimation gratuite – Subventions solaires</h2>
+
+    <label for="canton">Canton</label>
+    <select id="canton" name="canton" required>
+      <option value="">Choisir...</option>
+      <option>Vaud</option>
+      <option>Genève</option>
+      <option>Valais</option>
+      <option>Fribourg</option>
+      <option>Neuchâtel</option>
+      <option>Jura</option>
+    </select>
+
+    <label for="type">Type de bien</label>
+    <select id="type" name="type" required>
+      <option>Maison individuelle</option>
+      <option>Villa</option>
+      <option>Chalet</option>
+      <option>PPE</option>
+    </select>
+
+    <label for="surface">Surface du toit (m²)</label>
+    <input type="number" id="surface" name="surface" placeholder="Ex: 60" required>
+
+    <label for="budget">Budget estimé</label>
+    <select id="budget" name="budget" required>
+      <option><20 000 CHF</option>
+      <option>20 000 – 40 000 CHF</option>
+      <option>>40 000 CHF</option>
+    </select>
+
+    <label for="delai">Projet dans</label>
+    <select id="delai" name="delai" required>
+      <option>3 mois</option>
+      <option>6 mois</option>
+      <option>12 mois</option>
+    </select>
+
+    <label for="nom">Nom</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="tel">Téléphone</label>
+    <input type="tel" id="tel" name="tel" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <button type="submit">Obtenir mon estimation</button>
+  </form>
+</section>
+
+<section class="info-section">
+  <h2>Subventions cantonales 2026</h2>
+  <p><strong>Vaud :</strong> 74M CHF – jusqu’à 30% d’aide.<br>
+     <strong>Genève :</strong> programme énergies durables.<br>
+     <strong>Valais :</strong> soutien installation PV + batterie.</p>
+
+  <h2>Fiscalité avantageuse</h2>
+  <p>Les investissements solaires sont <strong>déductibles de l’impôt fédéral direct</strong> jusqu’en 2029.  
+     Cela réduit considérablement le coût net de votre projet.</p>
+
+  <h2>ROI typique</h2>
+  <p>Une installation de 10 kW produit env. 1’500 CHF/an d’économies.  
+     Subventions et fiscalité => amortissement en <strong>5 à 7 ans</strong>.</p>
+
+  <div class="cta">
+    <a href="#formulaire" class="btn-primary">Vérifier mon éligibilité maintenant</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 SolairesRomandie.ch — Estimation gratuite & partenaires certifiés.  
+  <br>Conforme RGPD Suisse – données utilisées seulement pour estimation et mise en relation installateur.
+</footer>
+
+</body>
+</html>
+
